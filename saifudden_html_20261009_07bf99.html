@@ -1,0 +1,2310 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saifuddeen — Cybersecurity Analyst</title>
+<meta name="description" content="Portfolio of Saifuddeen, a Cybersecurity Analyst specializing in threat detection, penetration testing and incident response." />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@200;300;400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     DESIGN TOKENS
+     ============================================================ */
+  :root {
+    --bg:          #080506;
+    --bg-alt:      #0e0809;
+    --surface:     #150c0e;
+    --surface-2:   #1c1215;
+    --border:      rgba(255, 45, 70, 0.22);
+    --border-soft: rgba(255, 255, 255, 0.07);
+    --accent:      #ff2d46;
+    --accent-2:    #ff6b6b;
+    --danger:      #ff4d6d;
+    --warning:     #ffb454;
+    --success:     #4ade80;
+    --text:        #e2d6d8;
+    --muted:       #9c8188;
+    --mono:        'JetBrains Mono', ui-monospace, monospace;
+    --tech:        'Share Tech Mono', var(--mono);
+    --sans:        'Outfit', system-ui, sans-serif;
+    --radius:      14px;
+    --glow:        0 0 28px rgba(255, 45, 70, 0.30);
+  }
+
+  /* ============================================================
+     CUSTOM CURSORS
+     ============================================================ */
+  html, body, * {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><circle cx='16' cy='16' r='9' fill='none' stroke='%23ff2d46' stroke-width='1.5' opacity='0.9'/><circle cx='16' cy='16' r='2' fill='%23ff2d46'/><line x1='16' y1='0' x2='16' y2='10' stroke='%23ff2d46' stroke-width='1.5'/><line x1='16' y1='22' x2='16' y2='32' stroke='%23ff2d46' stroke-width='1.5'/><line x1='0' y1='16' x2='10' y2='16' stroke='%23ff2d46' stroke-width='1.5'/><line x1='22' y1='16' x2='32' y2='16' stroke='%23ff2d46' stroke-width='1.5'/></svg>") 16 16, crosshair;
+  }
+  a, button, .btn, .nav-link, .navbar-toggler, .social-btn, .tool-chip,
+  .project-link, .cert-card, .cyber-card, .stat-box, .comp-card,
+  .contact-info-item a, .form-control, .form-select, [role="button"],
+  #toTop, .navbar-brand {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'><circle cx='17' cy='17' r='11' fill='none' stroke='%23ff2d46' stroke-width='2'/><circle cx='17' cy='17' r='3.5' fill='%23ff2d46'/><line x1='17' y1='0' x2='17' y2='8' stroke='%23ff2d46' stroke-width='2'/><line x1='17' y1='26' x2='17' y2='34' stroke='%23ff2d46' stroke-width='2'/><line x1='0' y1='17' x2='8' y2='17' stroke='%23ff2d46' stroke-width='2'/><line x1='26' y1='17' x2='34' y2='17' stroke='%23ff2d46' stroke-width='2'/><circle cx='17' cy='17' r='15' fill='none' stroke='%23ff2d46' stroke-width='0.8' opacity='0.5'/></svg>") 17 17, pointer;
+  }
+  input[type="text"], input[type="email"], textarea, .form-control {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><circle cx='16' cy='16' r='9' fill='none' stroke='%23ff2d46' stroke-width='1.5' opacity='0.9'/><line x1='16' y1='6' x2='16' y2='26' stroke='%23ff2d46' stroke-width='1.5'/><line x1='11' y1='6' x2='21' y2='6' stroke='%23ff2d46' stroke-width='1.5'/><line x1='11' y1='26' x2='21' y2='26' stroke='%23ff2d46' stroke-width='1.5'/></svg>") 16 16, text;
+  }
+
+  /* ============================================================
+     CURSOR GLOW
+     ============================================================ */
+  #cursorDot, #cursorRing {
+    position: fixed; top: 0; left: 0;
+    border-radius: 50%; pointer-events: none;
+    z-index: 10000; transform: translate(-50%, -50%);
+    will-change: transform;
+  }
+  #cursorDot {
+    width: 6px; height: 6px; background: var(--accent);
+    box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(255,45,70,.6);
+    transition: width .2s ease, height .2s ease, background .2s ease;
+  }
+  #cursorRing {
+    width: 34px; height: 34px;
+    border: 1.5px solid rgba(255,45,70,.65);
+    box-shadow: 0 0 14px rgba(255,45,70,.35), inset 0 0 10px rgba(255,45,70,.15);
+    transition: width .22s ease, height .22s ease, border-color .22s ease, background .22s ease;
+  }
+  body.cursor-hover #cursorRing {
+    width: 54px; height: 54px;
+    border-color: var(--accent);
+    background: rgba(255,45,70,.08);
+    box-shadow: 0 0 22px rgba(255,45,70,.55), inset 0 0 14px rgba(255,45,70,.2);
+  }
+  body.cursor-hover #cursorDot {
+    width: 4px; height: 4px; background: #fff; box-shadow: 0 0 14px #fff;
+  }
+  body.cursor-down #cursorRing {
+    width: 24px; height: 24px; border-color: #fff; background: rgba(255,45,70,.22);
+  }
+  @media (hover: none), (pointer: coarse) {
+    #cursorDot, #cursorRing { display: none !important; }
+    html, body, * { cursor: auto !important; }
+    a, button, .btn, [role="button"], .form-control { cursor: pointer !important; }
+  }
+
+  /* ============================================================
+     BASE
+     ============================================================ */
+  * { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; }
+  body {
+    background-color: var(--bg); color: var(--text);
+    font-family: var(--sans); font-weight: 300;
+    line-height: 1.75; position: relative;
+  }
+  #matrix {
+    position: fixed; inset: 0; z-index: 0;
+    opacity: 0.30; pointer-events: none;
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0;
+    background: repeating-linear-gradient(0deg,
+      rgba(255,45,70,.035) 0px, rgba(255,45,70,.035) 1px,
+      transparent 1px, transparent 3px);
+    pointer-events: none; z-index: 2;
+    animation: scanDrift 8s linear infinite;
+  }
+  @keyframes scanDrift {
+    from { transform: translateY(0); } to { transform: translateY(3px); }
+  }
+  body::before {
+    content: ""; position: fixed; left: 0; right: 0; top: -10%;
+    height: 140px;
+    background: linear-gradient(180deg, transparent, rgba(255,45,70,.055), transparent);
+    pointer-events: none; z-index: 3;
+    animation: scanSweep 7s linear infinite;
+  }
+  @keyframes scanSweep { 0% { top: -10%; } 100% { top: 110%; } }
+  main, header, footer, nav { position: relative; z-index: 4; }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--sans); font-weight: 700;
+    letter-spacing: -0.02em; color: #fff;
+  }
+  a { text-decoration: none; transition: all .25s ease; }
+  ::selection { background: var(--accent); color: #1a0306; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--accent), #7a0a1a);
+    border-radius: 10px; border: 2px solid var(--bg);
+  }
+
+  .section { padding: 100px 0; }
+  .text-accent { color: var(--accent) !important; }
+  .text-accent-2 { color: var(--accent-2) !important; }
+  .text-muted-soft { color: var(--muted) !important; }
+  .font-mono { font-family: var(--mono); }
+  .font-tech { font-family: var(--tech); }
+
+  /* ============================================================
+     NAVBAR
+     ============================================================ */
+  .navbar {
+    background: rgba(8,5,6,.75);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid transparent;
+    transition: all .35s ease; padding: 16px 0;
+  }
+  .navbar.scrolled {
+    background: rgba(8,5,6,.95);
+    border-bottom-color: var(--border);
+    padding: 10px 0;
+    box-shadow: 0 10px 40px rgba(0,0,0,.7);
+  }
+  .navbar-brand {
+    font-family: var(--tech); font-weight: 700;
+    font-size: 1.08rem; color: #fff !important;
+    letter-spacing: -0.3px;
+  }
+  .navbar-brand .prompt { color: var(--accent); }
+  .navbar-brand .cursor {
+    display: inline-block; width: 8px; height: 15px;
+    background: var(--accent); margin-left: 3px;
+    vertical-align: -2px;
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .navbar .nav-link {
+    color: var(--muted); font-size: .88rem; font-weight: 400;
+    margin: 0 4px; padding: 8px 14px !important;
+    border-radius: 8px; position: relative;
+    font-family: var(--tech); letter-spacing: .4px;
+  }
+  .navbar .nav-link::before {
+    content: ""; position: absolute;
+    left: 14px; bottom: 4px; width: 0; height: 1px;
+    background: var(--accent);
+    transition: width .3s ease;
+    box-shadow: 0 0 8px var(--accent);
+  }
+  .navbar .nav-link:hover, .navbar .nav-link.active {
+    color: var(--accent);
+    text-shadow: 0 0 12px rgba(255,45,70,.6);
+  }
+  .navbar .nav-link:hover::before, .navbar .nav-link.active::before {
+    width: calc(100% - 28px);
+  }
+  .navbar-toggler {
+    border: 1px solid var(--border); padding: 6px 10px;
+    color: var(--accent); box-shadow: none !important;
+  }
+
+  /* ============================================================
+     BUTTONS
+     ============================================================ */
+  .btn-cyber {
+    background: linear-gradient(135deg, var(--accent), #c40f2b);
+    color: #1a0306; font-weight: 600; font-family: var(--tech);
+    font-size: .9rem; border: none; border-radius: 10px;
+    padding: 13px 28px; letter-spacing: 1px; text-transform: uppercase;
+    position: relative; overflow: hidden; transition: all .3s ease;
+    box-shadow: 0 0 20px rgba(255,45,70,.35);
+  }
+  .btn-cyber::after {
+    content: ""; position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+    transition: left .6s ease;
+  }
+  .btn-cyber:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(255,45,70,.55); color: #1a0306;
+  }
+  .btn-cyber:hover::after { left: 100%; }
+  .btn-ghost {
+    background: transparent; color: var(--text);
+    border: 1px solid rgba(255,45,70,.35);
+    font-family: var(--tech); font-size: .9rem;
+    letter-spacing: 1px; text-transform: uppercase;
+    border-radius: 10px; padding: 13px 28px;
+    transition: all .3s ease;
+  }
+  .btn-ghost:hover {
+    border-color: var(--accent); color: var(--accent);
+    background: rgba(255,45,70,.09);
+    transform: translateY(-3px);
+    box-shadow: 0 0 24px rgba(255,45,70,.35);
+  }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 130px 0 90px; position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ""; position: absolute; top: -25%; right: -12%;
+    width: 620px; height: 620px;
+    background: radial-gradient(circle, rgba(255,45,70,.22), transparent 68%);
+    filter: blur(30px); pointer-events: none;
+  }
+  .hero::before {
+    content: ""; position: absolute; bottom: -30%; left: -15%;
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(190,15,45,.20), transparent 68%);
+    filter: blur(30px); pointer-events: none;
+  }
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--tech); font-size: .82rem; color: var(--accent);
+    background: rgba(255,45,70,.09); border: 1px solid var(--border);
+    padding: 7px 16px; border-radius: 100px;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 26px;
+    box-shadow: 0 0 20px rgba(255,45,70,.15);
+  }
+  .status-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .45; transform: scale(.82); }
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 800; line-height: 1.05; margin-bottom: 18px;
+  }
+  .hero h1 .grad {
+    background: linear-gradient(120deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .glitch {
+    position: relative; display: inline-block; color: #fff;
+    animation: glitchShift 3.5s infinite;
+  }
+  .glitch::before, .glitch::after {
+    content: attr(data-text); position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: transparent; overflow: hidden;
+  }
+  .glitch::before {
+    color: var(--accent); left: 2px;
+    text-shadow: -2px 0 var(--accent);
+    animation: glitchTop 2.8s infinite linear alternate-reverse;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+  .glitch::after {
+    color: #00d9ff; left: -2px;
+    text-shadow: -2px 0 #00d9ff;
+    animation: glitchBottom 3.6s infinite linear alternate-reverse;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  }
+  @keyframes glitchTop {
+    0%, 92%, 100% { transform: translate(0); }
+    93% { transform: translate(-3px, -2px); }
+    95% { transform: translate(3px, 1px); }
+    97% { transform: translate(-2px, 2px); }
+  }
+  @keyframes glitchBottom {
+    0%, 90%, 100% { transform: translate(0); }
+    91% { transform: translate(3px, 2px); }
+    94% { transform: translate(-3px, -1px); }
+    96% { transform: translate(2px, -2px); }
+  }
+  @keyframes glitchShift {
+    0%, 88%, 100% { transform: translate(0); }
+    89% { transform: translate(-1px, 1px); }
+    90% { transform: translate(1px, -1px); }
+  }
+  .typed-wrap {
+    font-family: var(--tech);
+    font-size: clamp(1rem, 2.2vw, 1.35rem);
+    color: var(--accent-2); min-height: 34px;
+    margin-bottom: 22px; letter-spacing: .5px;
+    text-shadow: 0 0 12px rgba(255,45,70,.5);
+  }
+  .typed-cursor {
+    display: inline-block; width: 9px; height: 1.05em;
+    background: var(--accent); vertical-align: -3px;
+    margin-left: 2px;
+    animation: blink 1s steps(1) infinite;
+    box-shadow: 0 0 10px var(--accent);
+  }
+  .hero p.lead {
+    color: var(--muted); max-width: 540px;
+    font-size: 1.02rem; margin-bottom: 34px;
+  }
+  .social-row { display: flex; gap: 12px; margin-top: 34px; }
+  .social-btn {
+    width: 42px; height: 42px; display: grid; place-items: center;
+    border: 1px solid var(--border-soft); border-radius: 11px;
+    color: var(--muted); font-size: 1.05rem;
+    background: rgba(255,255,255,.02);
+  }
+  .social-btn:hover {
+    color: var(--accent); border-color: var(--accent);
+    background: rgba(255,45,70,.09);
+    transform: translateY(-4px); box-shadow: var(--glow);
+  }
+  .terminal {
+    background: linear-gradient(160deg, var(--surface), #0c0708);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(0,0,0,.75), var(--glow);
+    font-family: var(--tech); font-size: .82rem;
+    position: relative; animation: float 6s ease-in-out infinite;
+  }
+  .terminal::before {
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg,
+      rgba(255,45,70,.035) 0px, rgba(255,45,70,.035) 1px,
+      transparent 1px, transparent 3px);
+    pointer-events: none;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .terminal-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 11px 16px;
+    background: rgba(255,45,70,.07);
+    border-bottom: 1px solid var(--border-soft);
+    position: relative; z-index: 1;
+  }
+  .term-dot { width: 11px; height: 11px; border-radius: 50%; }
+  .term-dot.r { background: #ff5f57; }
+  .term-dot.y { background: #febc2e; }
+  .term-dot.g { background: #28c840; }
+  .terminal-bar span.title {
+    margin-left: auto; color: var(--muted);
+    font-size: .72rem; letter-spacing: 1px;
+  }
+  .terminal-body {
+    padding: 20px 18px 24px; line-height: 1.9;
+    color: #b39aa0; position: relative; z-index: 1;
+  }
+  .terminal-body .cmd { color: var(--accent); text-shadow: 0 0 8px rgba(255,45,70,.6); }
+  .terminal-body .ok { color: #4ade80; }
+  .terminal-body .warn { color: var(--warning); }
+  .terminal-body .crit { color: var(--accent); font-weight: 700; text-shadow: 0 0 10px rgba(255,45,70,.8); }
+  .terminal-body .dim { color: #6a5459; }
+
+  /* ============================================================
+     SECTION HEADINGS
+     ============================================================ */
+  .section-tag {
+    font-family: var(--tech); font-size: .85rem;
+    color: var(--accent); letter-spacing: 2px;
+    text-transform: uppercase; display: block;
+    margin-bottom: 12px;
+    text-shadow: 0 0 14px rgba(255,45,70,.55);
+  }
+  .section-title {
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    font-weight: 700; margin-bottom: 16px;
+  }
+  .section-sub {
+    color: var(--muted); max-width: 620px; font-size: .98rem;
+  }
+  .divider-line {
+    width: 62px; height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    border-radius: 3px; margin: 18px 0 22px;
+    box-shadow: 0 0 14px rgba(255,45,70,.6);
+  }
+  .divider-line.mx-auto { margin-left: auto; margin-right: auto; }
+
+  /* ============================================================
+     CARDS
+     ============================================================ */
+  .cyber-card {
+    background: linear-gradient(160deg, var(--surface), var(--bg-alt));
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 30px 26px; height: 100%;
+    position: relative; overflow: hidden;
+    transition: all .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .cyber-card::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .45s ease;
+    box-shadow: 0 0 14px var(--accent);
+  }
+  .cyber-card:hover {
+    border-color: var(--border);
+    transform: translateY(-7px);
+    box-shadow: 0 22px 50px rgba(0,0,0,.65), 0 0 0 1px rgba(255,45,70,.15);
+  }
+  .cyber-card:hover::before { transform: scaleX(1); }
+  .icon-box {
+    width: 50px; height: 50px; display: grid; place-items: center;
+    border-radius: 12px;
+    background: rgba(255,45,70,.10); border: 1px solid var(--border);
+    color: var(--accent); font-size: 1.35rem;
+    margin-bottom: 18px; transition: all .35s ease;
+  }
+  .cyber-card:hover .icon-box {
+    background: var(--accent); color: #1a0306;
+    box-shadow: var(--glow);
+  }
+
+  /* ============================================================
+     ABOUT
+     ============================================================ */
+  .about-photo {
+    position: relative; border-radius: var(--radius);
+    overflow: hidden; border: 1px solid var(--border);
+    background: linear-gradient(150deg, var(--surface-2), var(--bg-alt));
+    aspect-ratio: 1 / 1; display: grid; place-items: center;
+    box-shadow: 0 0 40px rgba(255,45,70,.18) inset;
+  }
+  .about-photo .initials {
+    font-family: var(--tech);
+    font-size: clamp(4rem, 12vw, 7rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -4px;
+    text-shadow: 0 0 40px rgba(255,45,70,.5);
+  }
+  .about-photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg,
+      rgba(255,45,70,.07) 0px, rgba(255,45,70,.07) 1px,
+      transparent 1px, transparent 4px);
+    pointer-events: none;
+  }
+  .about-photo .corner {
+    position: absolute; width: 26px; height: 26px;
+    border: 2px solid var(--accent); z-index: 2;
+    box-shadow: 0 0 12px rgba(255,45,70,.7);
+  }
+  .about-photo .corner.tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+  .about-photo .corner.tr { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+  .about-photo .corner.bl { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+  .about-photo .corner.br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+
+  .stat-box {
+    border: 1px solid var(--border-soft); border-radius: 12px;
+    padding: 18px 16px; background: rgba(255,255,255,.015);
+    text-align: center; transition: all .3s ease;
+  }
+  .stat-box:hover {
+    border-color: var(--border);
+    background: rgba(255,45,70,.06);
+    box-shadow: 0 0 20px rgba(255,45,70,.18);
+  }
+  .stat-box .num {
+    font-family: var(--tech); font-size: 1.7rem;
+    font-weight: 700; color: var(--accent);
+    line-height: 1.2; text-shadow: 0 0 16px rgba(255,45,70,.6);
+  }
+  .stat-box .lbl {
+    font-size: .72rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 1.5px;
+    font-family: var(--tech);
+  }
+  .info-list { list-style: none; padding: 0; margin: 0; }
+  .info-list li {
+    display: flex; gap: 12px; padding: 9px 0;
+    font-size: .92rem;
+    border-bottom: 1px dashed rgba(255,255,255,.06);
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-list li i { color: var(--accent); font-size: 1rem; margin-top: 4px; }
+  .info-list li span.k { color: var(--muted); min-width: 96px; display: inline-block; font-family: var(--tech); }
+  .info-list li span.v { color: var(--text); }
+  .info-list li a.v { color: var(--text); }
+  .info-list li a.v:hover { color: var(--accent); text-shadow: 0 0 12px rgba(255,45,70,.5); }
+
+  /* ============================================================
+     CORE COMPETENCIES
+     ============================================================ */
+  .comp-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-end; gap: 12px; margin-bottom: 20px;
+  }
+  .comp-header h5 { margin: 0; }
+  .comp-file {
+    font-family: var(--tech); font-size: .72rem;
+    color: var(--muted); letter-spacing: 1px;
+    opacity: .85; white-space: nowrap;
+  }
+
+  .radar-panel {
+    position: relative;
+    background:
+      radial-gradient(ellipse at center, rgba(255,45,70,.10), transparent 70%),
+      linear-gradient(160deg, rgba(255,45,70,.045), rgba(255,45,70,.005));
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+    padding: 20px 20px 26px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,.5);
+  }
+  .radar-panel::before {
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg,
+      rgba(255,45,70,.03) 0px, rgba(255,45,70,.03) 1px,
+      transparent 1px, transparent 3px);
+    pointer-events: none; border-radius: 16px;
+  }
+  .radar-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--tech); font-size: .7rem;
+    color: var(--accent); letter-spacing: 1.5px;
+    background: rgba(255,45,70,.10);
+    border: 1px solid rgba(255,45,70,.32);
+    padding: 5px 12px; border-radius: 100px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    position: relative; z-index: 1;
+    box-shadow: 0 0 16px rgba(255,45,70,.25);
+  }
+  .radar-badge-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 1.6s infinite;
+  }
+  .radar-svg {
+    display: block; width: 100%; height: auto;
+    position: relative; z-index: 1;
+    filter: drop-shadow(0 0 16px rgba(255,45,70,.25));
+  }
+  .radar-grid-line { stroke: rgba(255,45,70,.20); }
+  .radar-grid-line-outer { stroke: rgba(255,45,70,.38); }
+  .radar-axis { stroke: rgba(255,45,70,.28); }
+  .radar-data-poly {
+    fill: url(#radarGrad);
+    stroke: var(--accent); stroke-width: 2;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 10px rgba(255,45,70,.8));
+    transform-origin: center;
+    animation: radarGrow 1.6s cubic-bezier(.25,.8,.3,1);
+  }
+  @keyframes radarGrow {
+    from { opacity: 0; transform: scale(.1); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .radar-vertex {
+    fill: var(--accent); stroke: #fff; stroke-width: 1.5;
+    filter: drop-shadow(0 0 8px var(--accent));
+    transform-origin: center;
+    animation: dotPop .5s cubic-bezier(.34,1.56,.64,1) backwards;
+  }
+  @keyframes dotPop {
+    0% { transform: scale(0); opacity: 0; }
+    70% { transform: scale(1.4); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .radar-label {
+    fill: var(--muted);
+    font-family: var(--tech);
+    font-size: 9px; letter-spacing: 1.2px;
+  }
+  .radar-label-strong { fill: var(--text); font-weight: 700; }
+  .radar-value {
+    fill: var(--accent);
+    font-family: var(--tech);
+    font-size: 9px; font-weight: 700;
+  }
+
+  .comp-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .comp-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 62px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(150deg, rgba(255,45,70,.05), rgba(255,45,70,.005));
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 14px 18px 14px 14px;
+    overflow: hidden;
+    transition: all .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .comp-card::before {
+    content: ""; position: absolute;
+    left: 0; top: 0; bottom: 0; width: 3px;
+    background: linear-gradient(180deg, var(--accent), #7a0a1a);
+    opacity: .55;
+    box-shadow: 0 0 12px rgba(255,45,70,.6);
+    transition: opacity .35s ease;
+  }
+  .comp-card::after {
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg,
+      rgba(255,45,70,.025) 0px, rgba(255,45,70,.025) 1px,
+      transparent 1px, transparent 3px);
+    pointer-events: none; opacity: 0;
+    transition: opacity .35s ease;
+    border-radius: 12px;
+  }
+  .comp-card:hover {
+    border-color: var(--border);
+    transform: translateX(6px);
+    box-shadow: 0 12px 32px rgba(0,0,0,.55), 0 0 26px rgba(255,45,70,.18);
+  }
+  .comp-card:hover::before { opacity: 1; }
+  .comp-card:hover::after { opacity: 1; }
+
+  .ring-wrap {
+    position: relative; width: 58px; height: 58px;
+    flex-shrink: 0; z-index: 1;
+  }
+  .ring-svg { width: 100%; height: 100%; display: block; transform: rotate(-90deg); }
+  .ring-bg { fill: none; stroke: rgba(255,255,255,.06); stroke-width: 3.5; }
+  .ring-fill {
+    fill: none;
+    stroke: url(#ringGrad);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-dasharray: 113.10;
+    stroke-dashoffset: 113.10;
+    filter: drop-shadow(0 0 6px rgba(255,45,70,.85));
+    transition: stroke-dashoffset 1.8s cubic-bezier(.25,.8,.3,1);
+  }
+  .ring-tick {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0;
+    filter: drop-shadow(0 0 4px #fff);
+    transition: opacity .4s ease .8s;
+  }
+  .comp-card.animated .ring-tick { opacity: 1; }
+
+  .comp-body { min-width: 0; position: relative; z-index: 1; }
+  .comp-title {
+    display: flex; align-items: center; gap: 9px;
+    font-family: var(--tech); font-size: .92rem;
+    color: var(--text); letter-spacing: .3px;
+    margin-bottom: 6px; line-height: 1.2;
+  }
+  .comp-title i {
+    color: var(--accent); font-size: .95rem;
+    text-shadow: 0 0 12px rgba(255,45,70,.7);
+    flex-shrink: 0;
+  }
+  .comp-sub { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+  .comp-sub span {
+    font-family: var(--tech); font-size: .62rem;
+    color: var(--muted);
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.07);
+    padding: 2px 7px; border-radius: 4px;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+  }
+
+  /* Enhanced percentage block */
+  .comp-pct-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    position: relative;
+    z-index: 1;
+    padding-left: 10px;
+    border-left: 1px solid rgba(255,45,70,.14);
+    min-width: 92px;
+  }
+  .comp-pct-display {
+    display: flex; align-items: baseline; gap: 2px;
+    font-family: var(--tech); line-height: 1;
+    position: relative;
+  }
+  .comp-pct-num {
+    font-size: 2rem; font-weight: 700;
+    letter-spacing: -1px;
+    color: transparent;
+    background: linear-gradient(135deg, #ffb3b3 0%, #ff6b6b 40%, #ff2d46 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    filter: drop-shadow(0 0 14px rgba(255,45,70,.55));
+    position: relative;
+    transition: filter .3s ease;
+    display: inline-block;
+    min-width: 2.2ch;
+    text-align: right;
+  }
+  .comp-pct-num::before {
+    content: ""; position: absolute;
+    inset: -8px -10px;
+    background: radial-gradient(ellipse at center, rgba(255,45,70,.22), transparent 65%);
+    border-radius: 12px; z-index: -1;
+    opacity: 0; transition: opacity .4s ease;
+  }
+  .comp-card.animated .comp-pct-num::before { opacity: 1; }
+  .comp-pct-num::after {
+    content: ""; position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(100deg,
+      transparent 30%,
+      rgba(255,255,255,.75) 50%,
+      transparent 70%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    pointer-events: none; opacity: 0;
+    transform: translateX(-100%);
+  }
+  .comp-card.animated .comp-pct-num::after {
+    animation: pctShine 1.1s ease-out .9s;
+  }
+  @keyframes pctShine {
+    0%   { transform: translateX(-100%); opacity: 0; }
+    15%  { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+  }
+  .comp-pct-sym {
+    font-family: var(--tech); font-size: .8rem;
+    font-weight: 500; color: var(--accent);
+    opacity: .8;
+    text-shadow: 0 0 10px rgba(255,45,70,.7);
+    transform: translateY(-1px);
+  }
+  .comp-pct-bar {
+    position: relative; width: 100%; height: 3px;
+    background: rgba(255,255,255,.05);
+    border-radius: 3px; overflow: hidden; margin-top: 2px;
+  }
+  .comp-pct-bar::after {
+    content: ""; position: absolute;
+    left: 0; top: 0; bottom: 0; width: 0;
+    background: linear-gradient(90deg, #7a0a1a, var(--accent), #ff8f9f);
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(255,45,70,.85);
+    transition: width 1.8s cubic-bezier(.25,.8,.3,1);
+  }
+  .comp-card.animated .comp-pct-bar::after { width: var(--bar-w, 0%); }
+  .comp-pct-meta {
+    display: flex; align-items: center; gap: 6px;
+    justify-content: flex-end; margin-top: 4px;
+  }
+  .comp-tag {
+    font-family: var(--tech); font-size: .58rem;
+    font-weight: 700; letter-spacing: 1.4px;
+    padding: 3px 7px; border-radius: 4px;
+    text-transform: uppercase; white-space: nowrap;
+    line-height: 1;
+  }
+  .comp-tag-expert {
+    color: var(--accent);
+    background: rgba(255,45,70,.14);
+    border: 1px solid rgba(255,45,70,.4);
+    box-shadow: 0 0 12px rgba(255,45,70,.28);
+  }
+  .comp-tag-adv {
+    color: #ff9d6b;
+    background: rgba(255,157,107,.10);
+    border: 1px solid rgba(255,157,107,.32);
+  }
+  .comp-tag-pro {
+    color: #ffc857;
+    background: rgba(255,200,87,.10);
+    border: 1px solid rgba(255,200,87,.30);
+  }
+  .comp-pct-live {
+    display: inline-block; width: 5px; height: 5px;
+    border-radius: 50%; background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    animation: pulse 1.8s infinite;
+    margin-right: 4px; vertical-align: middle;
+    opacity: 0; transition: opacity .4s ease .9s;
+  }
+  .comp-card.animated .comp-pct-live { opacity: .9; }
+
+  /* ============================================================
+     TOOLS
+     ============================================================ */
+  .tool-chip {
+    display: inline-block;
+    font-family: var(--tech); font-size: .8rem;
+    color: var(--muted);
+    border: 1px solid var(--border-soft);
+    background: rgba(255,255,255,.02);
+    padding: 7px 15px; border-radius: 8px;
+    margin: 0 8px 10px 0; letter-spacing: .5px;
+    transition: all .25s ease;
+  }
+  .tool-chip:hover {
+    color: var(--accent); border-color: var(--accent);
+    background: rgba(255,45,70,.10);
+    transform: translateY(-3px);
+    box-shadow: 0 0 16px rgba(255,45,70,.35);
+  }
+
+  /* ============================================================
+     TIMELINE
+     ============================================================ */
+  .timeline { position: relative; padding-left: 34px; }
+  .timeline::before {
+    content: ""; position: absolute;
+    left: 8px; top: 6px; bottom: 6px; width: 2px;
+    background: linear-gradient(180deg, var(--accent), #7a0a1a, transparent);
+    opacity: .75;
+    box-shadow: 0 0 12px rgba(255,45,70,.5);
+  }
+  .tl-item { position: relative; padding-bottom: 42px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute;
+    left: -33px; top: 7px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--accent);
+    box-shadow: 0 0 16px rgba(255,45,70,.85);
+    transition: all .3s ease;
+  }
+  .tl-item:hover::before { background: var(--accent); transform: scale(1.2); }
+  .tl-date {
+    font-family: var(--tech); font-size: .82rem;
+    color: var(--accent); letter-spacing: 1.5px;
+    margin-bottom: 6px;
+    text-shadow: 0 0 12px rgba(255,45,70,.6);
+  }
+  .tl-role { font-size: 1.08rem; font-weight: 600; color: #fff; margin-bottom: 3px; }
+  .tl-company {
+    font-size: .9rem; color: var(--accent-2);
+    font-family: var(--tech); margin-bottom: 12px;
+    letter-spacing: .4px;
+  }
+  .tl-list { list-style: none; padding: 0; margin: 0; }
+  .tl-list li {
+    position: relative; padding-left: 20px;
+    color: var(--muted); font-size: .91rem;
+    margin-bottom: 7px;
+  }
+  .tl-list li::before {
+    content: "▸"; position: absolute; left: 0;
+    color: var(--accent);
+    text-shadow: 0 0 8px rgba(255,45,70,.7);
+  }
+
+  /* ============================================================
+     PROJECTS
+     ============================================================ */
+  .project-card { display: flex; flex-direction: column; }
+  .project-card .p-icon {
+    font-size: 1.7rem; color: var(--accent);
+    margin-bottom: 16px;
+    text-shadow: 0 0 14px rgba(255,45,70,.6);
+  }
+  .project-card h5 { font-size: 1.05rem; margin-bottom: 10px; }
+  .project-card p { color: var(--muted); font-size: .9rem; flex-grow: 1; }
+  .tag {
+    font-family: var(--tech); font-size: .72rem;
+    color: var(--accent-2);
+    background: rgba(255,107,107,.09);
+    border: 1px solid rgba(255,107,107,.28);
+    padding: 3px 10px; border-radius: 6px;
+    margin: 0 6px 6px 0; display: inline-block;
+    letter-spacing: .5px;
+  }
+  .project-link {
+    font-family: var(--tech); font-size: .85rem;
+    color: var(--accent); margin-top: 16px;
+    display: inline-flex; align-items: center; gap: 7px;
+    letter-spacing: .5px;
+    text-shadow: 0 0 10px rgba(255,45,70,.4);
+  }
+  .project-link:hover { color: #fff; gap: 11px; }
+
+  /* ============================================================
+     CERTIFICATIONS
+     ============================================================ */
+  .cert-card {
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 22px;
+    background: linear-gradient(160deg, var(--surface), var(--bg-alt));
+    border: 1px solid var(--border-soft);
+    border-radius: 12px; height: 100%;
+    transition: all .3s ease;
+  }
+  .cert-card:hover {
+    border-color: var(--border);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0,0,0,.6), 0 0 20px rgba(255,45,70,.2);
+  }
+  .cert-badge {
+    flex-shrink: 0; width: 46px; height: 46px;
+    border-radius: 11px; display: grid; place-items: center;
+    font-size: 1.25rem;
+    background: rgba(255,45,70,.11);
+    border: 1px solid var(--border); color: var(--accent);
+  }
+  .cert-card h6 { margin: 0 0 3px; font-size: .95rem; }
+  .cert-card small {
+    color: var(--muted); font-family: var(--tech);
+    font-size: .78rem; letter-spacing: .5px;
+  }
+
+  /* ============================================================
+     CONTACT
+     ============================================================ */
+  .contact-card {
+    background: linear-gradient(160deg, var(--surface), var(--bg-alt));
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 34px 30px; position: relative;
+  }
+  .contact-card::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 60px; height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 14px var(--accent);
+  }
+  .form-control, .form-select {
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--border-soft);
+    color: var(--text); border-radius: 10px;
+    padding: 13px 16px; font-size: .92rem;
+    font-family: var(--sans); transition: all .25s ease;
+  }
+  .form-control::placeholder { color: #6d565b; }
+  .form-control:focus, .form-select:focus {
+    background: rgba(255,45,70,.05);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255,45,70,.16), 0 0 20px rgba(255,45,70,.2);
+    color: #fff;
+  }
+  .form-label {
+    font-family: var(--tech); font-size: .8rem;
+    color: var(--muted); letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 7px;
+  }
+  .contact-info-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px dashed rgba(255,255,255,.07);
+  }
+  .contact-info-item:last-child { border-bottom: none; }
+  .contact-info-item .ci-icon {
+    width: 42px; height: 42px; flex-shrink: 0;
+    border-radius: 10px; display: grid; place-items: center;
+    background: rgba(255,45,70,.10);
+    border: 1px solid var(--border); color: var(--accent);
+  }
+  .contact-info-item .ci-label {
+    font-family: var(--tech); font-size: .76rem;
+    color: var(--muted); text-transform: uppercase;
+    letter-spacing: 1.5px; margin-bottom: 2px;
+  }
+  .contact-info-item .ci-value { color: var(--text); font-size: .93rem; word-break: break-word; }
+  .contact-info-item a.ci-value:hover {
+    color: var(--accent);
+    text-shadow: 0 0 12px rgba(255,45,70,.5);
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer {
+    border-top: 1px solid var(--border-soft);
+    padding: 34px 0; background: var(--bg-alt);
+  }
+  footer p {
+    margin: 0; font-size: .86rem; color: var(--muted);
+    font-family: var(--tech); letter-spacing: .5px;
+  }
+  footer .heart { color: var(--accent); text-shadow: 0 0 10px rgba(255,45,70,.7); }
+
+  #toTop {
+    position: fixed; right: 24px; bottom: 24px;
+    width: 46px; height: 46px; border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(21,12,14,.92);
+    backdrop-filter: blur(10px);
+    color: var(--accent); display: grid; place-items: center;
+    font-size: 1.1rem; opacity: 0; visibility: hidden;
+    transform: translateY(14px); transition: all .35s ease;
+    z-index: 999;
+  }
+  #toTop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+  #toTop:hover { background: var(--accent); color: #1a0306; box-shadow: var(--glow); }
+
+  /* ============================================================
+     BOOT OVERLAY
+     ============================================================ */
+  #boot {
+    position: fixed; inset: 0; background: #050203;
+    z-index: 9999; display: flex; align-items: center;
+    justify-content: center; font-family: var(--tech);
+    color: var(--accent); padding: 20px;
+    transition: opacity .6s ease;
+  }
+  #boot.hidden { opacity: 0; pointer-events: none; }
+  #boot .boot-inner { width: 100%; max-width: 640px; font-size: .88rem; line-height: 2; }
+  #boot .boot-line { opacity: 0; animation: bootFade .25s forwards; }
+  #boot .boot-line .ok { color: #4ade80; }
+  #boot .boot-line .dim { color: #6a5459; }
+  @keyframes bootFade { to { opacity: 1; } }
+  #boot .boot-bar {
+    margin-top: 18px; height: 4px;
+    background: rgba(255,45,70,.15);
+    border-radius: 4px; overflow: hidden;
+  }
+  #boot .boot-bar span {
+    display: block; height: 100%; width: 0;
+    background: linear-gradient(90deg, #a3081f, var(--accent));
+    box-shadow: 0 0 14px var(--accent);
+    transition: width .4s ease;
+  }
+  #boot .boot-logo {
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    font-weight: 700; margin-bottom: 20px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(255,45,70,.8);
+    color: #fff;
+  }
+
+  /* ============================================================
+     SCROLL REVEAL
+     ============================================================ */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .75s cubic-bezier(.2,.8,.2,1),
+                transform .75s cubic-bezier(.2,.8,.2,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .terminal { animation: none; }
+    .glitch, .glitch::before, .glitch::after { animation: none; }
+    body::before, body::after { animation: none; }
+    .radar-data-poly, .radar-vertex { animation: none; }
+    .comp-pct-num::after { animation: none; }
+    * { scroll-behavior: auto; }
+  }
+
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  @media (max-width: 1199.98px) {
+    .comp-pct-num { font-size: 1.75rem; }
+    .comp-pct-block { min-width: 82px; }
+  }
+  @media (max-width: 991.98px) {
+    .section { padding: 76px 0; }
+    .navbar-collapse {
+      background: rgba(14,8,9,.98);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px; margin-top: 14px; padding: 12px;
+    }
+    .hero { padding: 120px 0 70px; text-align: left; }
+    .terminal { margin-top: 48px; }
+    .radar-panel { margin-bottom: 28px; }
+  }
+  @media (max-width: 575.98px) {
+    .section { padding: 60px 0; }
+    .cyber-card { padding: 24px 20px; }
+    .contact-card { padding: 26px 20px; }
+    .timeline { padding-left: 28px; }
+    .tl-item::before { left: -28px; }
+    #toTop { right: 16px; bottom: 16px; }
+    #matrix { opacity: .18; }
+
+    .comp-card {
+      grid-template-columns: 46px 1fr auto;
+      gap: 10px;
+      padding: 12px 12px 12px 10px;
+    }
+    .ring-wrap { width: 46px; height: 46px; }
+    .comp-title { font-size: .8rem; }
+    .comp-sub { display: none; }
+    .comp-pct-num { font-size: 1.4rem; letter-spacing: -.5px; }
+    .comp-pct-sym { font-size: .65rem; }
+    .comp-pct-block { min-width: 70px; padding-left: 8px; }
+    .comp-tag { font-size: .52rem; padding: 2px 5px; letter-spacing: 1px; }
+    .comp-pct-meta { gap: 3px; }
+  }
+  @media (max-width: 400px) {
+    .comp-pct-num { font-size: 1.25rem; }
+    .comp-pct-block { min-width: 60px; }
+  }
+</style>
+</head>
+
+<body>
+
+<div id="cursorRing"></div>
+<div id="cursorDot"></div>
+<canvas id="matrix"></canvas>
+
+<!-- BOOT -->
+<div id="boot">
+  <div class="boot-inner">
+    <div class="boot-logo">&gt;_ SAIFUDDEEN.SEC</div>
+    <div class="boot-line" style="animation-delay:.05s"><span class="dim">[</span> OK <span class="dim">]</span> Initializing secure shell...</div>
+    <div class="boot-line" style="animation-delay:.25s"><span class="dim">[</span> <span class="ok">OK</span> <span class="dim">]</span> Loading kernel modules</div>
+    <div class="boot-line" style="animation-delay:.45s"><span class="dim">[</span> <span class="ok">OK</span> <span class="dim">]</span> Mounting encrypted filesystem</div>
+    <div class="boot-line" style="animation-delay:.65s"><span class="dim">[</span> <span class="ok">OK</span> <span class="dim">]</span> Starting threat detection engine</div>
+    <div class="boot-line" style="animation-delay:.85s"><span class="dim">[</span> <span class="ok">OK</span> <span class="dim">]</span> Establishing VPN tunnel</div>
+    <div class="boot-line" style="animation-delay:1.05s"><span class="dim">[</span> <span class="ok">OK</span> <span class="dim">]</span> Loading portfolio assets</div>
+    <div class="boot-line" style="animation-delay:1.3s"><span class="dim">[</span> <span class="ok">OK</span> <span class="dim">]</span> Access granted — welcome, operator.</div>
+    <div class="boot-bar"><span id="bootBar"></span></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#home">
+      <span class="prompt">root@</span>saifuddeen<span class="text-accent">:~$</span><span class="cursor"></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="#home">home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">about</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certs">certs</a></li>
+        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+          <a class="btn btn-cyber w-100" href="#contact">Hire Me</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <div class="status-pill reveal">
+          <span class="status-dot"></span> SYSTEM ONLINE · AVAILABLE FOR ENGAGEMENTS
+        </div>
+
+        <h1 class="reveal">
+          Hi, I'm <span class="glitch" data-text="Saifuddeen">Saifuddeen</span><br />
+          <span class="grad">Cybersecurity Analyst</span>
+        </h1>
+
+        <div class="typed-wrap reveal">
+          <span id="typed"></span><span class="typed-cursor"></span>
+        </div>
+
+        <p class="lead reveal">
+          I defend networks, hunt threats, and break systems ethically — so attackers can't.
+          Specialised in SOC operations, penetration testing, and incident response with a
+          focus on turning raw telemetry into actionable intelligence.
+        </p>
+
+        <div class="d-flex flex-wrap gap-3 reveal">
+          <a href="#projects" class="btn btn-cyber"><i class="bi bi-shield-lock me-2"></i>View My Work</a>
+          <a href="#contact" class="btn btn-ghost"><i class="bi bi-terminal me-2"></i>Get In Touch</a>
+        </div>
+
+        <div class="social-row reveal">
+          <a href="#" class="social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="https://www.linkedin.com/in/muhammed-saifuddeen-5b389a40b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+             target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="#" class="social-btn" aria-label="TryHackMe"><i class="bi bi-shield-check"></i></a>
+          <a href="mailto:saifumuhammed54@gmail.com" class="social-btn" aria-label="Email"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="terminal reveal">
+          <div class="terminal-bar">
+            <span class="term-dot r"></span>
+            <span class="term-dot y"></span>
+            <span class="term-dot g"></span>
+            <span class="title">saifuddeen@kali: ~</span>
+          </div>
+          <div class="terminal-body">
+            <div><span class="cmd">$</span> whoami</div>
+            <div class="ok">saifuddeen — cybersecurity analyst</div>
+            <div class="mt-2"><span class="cmd">$</span> nmap -sV --top-ports 100 10.0.0.0/24</div>
+            <div class="dim">Starting Nmap 7.94 ( https://nmap.org )</div>
+            <div>PORT&nbsp;&nbsp;&nbsp;&nbsp;STATE&nbsp;&nbsp;&nbsp;SERVICE&nbsp;&nbsp;&nbsp;VERSION</div>
+            <div><span class="ok">22/tcp&nbsp;&nbsp;&nbsp;open&nbsp;&nbsp;&nbsp;&nbsp;ssh</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OpenSSH 9.2</div>
+            <div><span class="ok">443/tcp&nbsp;&nbsp;open&nbsp;&nbsp;&nbsp;&nbsp;https</span>&nbsp;&nbsp;&nbsp;nginx 1.24</div>
+            <div><span class="warn">8080/tcp open&nbsp;&nbsp;&nbsp;&nbsp;http</span>&nbsp;&nbsp;&nbsp;&nbsp;Tomcat 9.0</div>
+            <div class="mt-2"><span class="cmd">$</span> ./threat_hunt.sh --ioc feed.json</div>
+            <div class="dim">[*] Scanning 12,480 events...</div>
+            <div class="crit">[!] 3 suspicious outbound beacons detected</div>
+            <div class="ok">[✓] Hosts isolated · Report generated</div>
+            <div class="mt-2"><span class="cmd">$</span> <span class="typed-cursor" style="height:12px"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5 reveal">
+        <div class="about-photo">
+          <span class="corner tl"></span>
+          <span class="corner tr"></span>
+          <span class="corner bl"></span>
+          <span class="corner br"></span>
+          <div class="initials">SD</div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 reveal">
+        <span class="section-tag">// 01 — about_me</span>
+        <h2 class="section-title">Securing systems,<br />one vulnerability at a time.</h2>
+        <div class="divider-line"></div>
+
+        <p class="text-muted-soft mb-3">
+          I'm <strong class="text-white">Saifuddeen</strong>, a cybersecurity analyst with hands-on
+          experience across Security Operations Centres, vulnerability assessment, and red team
+          engagements. I live in the logs — correlating SIEM alerts, reverse-engineering malware
+          samples, and building detection rules that actually catch what matters.
+        </p>
+        <p class="text-muted-soft mb-4">
+          My approach blends an attacker's curiosity with a defender's discipline. Whether it's
+          hardening a cloud environment, running a phishing simulation, or writing a YARA rule at
+          2 AM during an incident, I focus on measurable risk reduction — not checkbox compliance.
+        </p>
+
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-md-3">
+            <div class="stat-box">
+              <div class="num" data-count="4" data-suffix="+">0</div>
+              <div class="lbl">Years Exp</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-box">
+              <div class="num" data-count="120" data-suffix="+">0</div>
+              <div class="lbl">Vulns Found</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-box">
+              <div class="num" data-count="35" data-suffix="+">0</div>
+              <div class="lbl">Incidents</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-box">
+              <div class="num" data-count="8">0</div>
+              <div class="lbl">Certifications</div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="info-list">
+          <li><i class="bi bi-geo-alt"></i><span class="k">Location</span><span class="v">Remote · Available Worldwide</span></li>
+          <li><i class="bi bi-briefcase"></i><span class="k">Focus</span><span class="v">SOC / Blue Team · Pentesting · Cloud Security</span></li>
+          <li><i class="bi bi-translate"></i><span class="k">Languages</span><span class="v">English, Hindi, Tamil, Arabic (basic)</span></li>
+          <li>
+            <i class="bi bi-linkedin"></i><span class="k">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/muhammed-saifuddeen-5b389a40b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+               target="_blank" rel="noopener noreferrer" class="v">muhammed-saifuddeen</a>
+          </li>
+          <li><i class="bi bi-patch-check"></i><span class="k">Status</span><span class="v text-accent">Open to full-time &amp; freelance</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-tag">// 02 — capabilities</span>
+      <h2 class="section-title">Technical Arsenal</h2>
+      <div class="divider-line mx-auto"></div>
+      <p class="section-sub mx-auto">
+        The tools, frameworks, and disciplines I use daily to detect, analyse, and neutralise threats.
+      </p>
+    </div>
+
+    <div class="row g-5 mb-5 align-items-center">
+
+      <div class="col-lg-5 reveal">
+        <div class="radar-panel">
+          <div class="radar-badge">
+            <span class="radar-badge-dot"></span>
+            Skill Matrix · Live
+          </div>
+          <svg class="radar-svg" viewBox="0 0 320 320" id="radarChart" role="img" aria-label="Radar chart of core competencies"></svg>
+        </div>
+      </div>
+
+      <div class="col-lg-7 reveal">
+        <div class="comp-header">
+          <h5><i class="bi bi-bar-chart-line text-accent me-2"></i>Core Competencies</h5>
+          <span class="comp-file">// skills.json · 6 modules</span>
+        </div>
+
+        <div class="comp-grid">
+
+          <div class="comp-card">
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 44 44">
+                <circle class="ring-bg" cx="22" cy="22" r="18" />
+                <circle class="ring-fill" cx="22" cy="22" r="18" data-pct="95" />
+                <line class="ring-tick" x1="22" y1="2" x2="22" y2="7" />
+              </svg>
+            </div>
+            <div class="comp-body">
+              <div class="comp-title">
+                <i class="bi bi-radar"></i>
+                <span>Threat Detection &amp; SIEM</span>
+              </div>
+              <div class="comp-sub">
+                <span>Splunk</span><span>ELK</span><span>MITRE ATT&amp;CK</span><span>Sigma</span>
+              </div>
+            </div>
+            <div class="comp-pct-block">
+              <div class="comp-pct-display">
+                <span class="comp-pct-live"></span>
+                <span class="comp-pct-num" data-count="95">0</span>
+                <span class="comp-pct-sym">%</span>
+              </div>
+              <div class="comp-pct-bar" style="--bar-w: 95%"></div>
+              <div class="comp-pct-meta">
+                <span class="comp-tag comp-tag-expert">EXPERT</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 44 44">
+                <circle class="ring-bg" cx="22" cy="22" r="18" />
+                <circle class="ring-fill" cx="22" cy="22" r="18" data-pct="92" />
+                <line class="ring-tick" x1="22" y1="2" x2="22" y2="7" />
+              </svg>
+            </div>
+            <div class="comp-body">
+              <div class="comp-title">
+                <i class="bi bi-diagram-3"></i>
+                <span>Network Security</span>
+              </div>
+              <div class="comp-sub">
+                <span>Firewalls</span><span>IDS/IPS</span><span>Wireshark</span><span>Zero Trust</span>
+              </div>
+            </div>
+            <div class="comp-pct-block">
+              <div class="comp-pct-display">
+                <span class="comp-pct-live"></span>
+                <span class="comp-pct-num" data-count="92">0</span>
+                <span class="comp-pct-sym">%</span>
+              </div>
+              <div class="comp-pct-bar" style="--bar-w: 92%"></div>
+              <div class="comp-pct-meta">
+                <span class="comp-tag comp-tag-expert">EXPERT</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 44 44">
+                <circle class="ring-bg" cx="22" cy="22" r="18" />
+                <circle class="ring-fill" cx="22" cy="22" r="18" data-pct="90" />
+                <line class="ring-tick" x1="22" y1="2" x2="22" y2="7" />
+              </svg>
+            </div>
+            <div class="comp-body">
+              <div class="comp-title">
+                <i class="bi bi-crosshair"></i>
+                <span>Penetration Testing</span>
+              </div>
+              <div class="comp-sub">
+                <span>Burp Suite</span><span>Metasploit</span><span>Nmap</span><span>OWASP</span>
+              </div>
+            </div>
+            <div class="comp-pct-block">
+              <div class="comp-pct-display">
+                <span class="comp-pct-live"></span>
+                <span class="comp-pct-num" data-count="90">0</span>
+                <span class="comp-pct-sym">%</span>
+              </div>
+              <div class="comp-pct-bar" style="--bar-w: 90%"></div>
+              <div class="comp-pct-meta">
+                <span class="comp-tag comp-tag-adv">ADVANCED</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 44 44">
+                <circle class="ring-bg" cx="22" cy="22" r="18" />
+                <circle class="ring-fill" cx="22" cy="22" r="18" data-pct="88" />
+                <line class="ring-tick" x1="22" y1="2" x2="22" y2="7" />
+              </svg>
+            </div>
+            <div class="comp-body">
+              <div class="comp-title">
+                <i class="bi bi-shield-exclamation"></i>
+                <span>Incident Response</span>
+              </div>
+              <div class="comp-sub">
+                <span>Triage</span><span>Forensics</span><span>Containment</span><span>NIST 800-61</span>
+              </div>
+            </div>
+            <div class="comp-pct-block">
+              <div class="comp-pct-display">
+                <span class="comp-pct-live"></span>
+                <span class="comp-pct-num" data-count="88">0</span>
+                <span class="comp-pct-sym">%</span>
+              </div>
+              <div class="comp-pct-bar" style="--bar-w: 88%"></div>
+              <div class="comp-pct-meta">
+                <span class="comp-tag comp-tag-adv">ADVANCED</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 44 44">
+                <circle class="ring-bg" cx="22" cy="22" r="18" />
+                <circle class="ring-fill" cx="22" cy="22" r="18" data-pct="82" />
+                <line class="ring-tick" x1="22" y1="2" x2="22" y2="7" />
+              </svg>
+            </div>
+            <div class="comp-body">
+              <div class="comp-title">
+                <i class="bi bi-cloud-lock"></i>
+                <span>Cloud Security (AWS/Azure)</span>
+              </div>
+              <div class="comp-sub">
+                <span>GuardDuty</span><span>IAM</span><span>CSPM</span><span>Terraform</span>
+              </div>
+            </div>
+            <div class="comp-pct-block">
+              <div class="comp-pct-display">
+                <span class="comp-pct-live"></span>
+                <span class="comp-pct-num" data-count="82">0</span>
+                <span class="comp-pct-sym">%</span>
+              </div>
+              <div class="comp-pct-bar" style="--bar-w: 82%"></div>
+              <div class="comp-pct-meta">
+                <span class="comp-tag comp-tag-adv">ADVANCED</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 44 44">
+                <circle class="ring-bg" cx="22" cy="22" r="18" />
+                <circle class="ring-fill" cx="22" cy="22" r="18" data-pct="78" />
+                <line class="ring-tick" x1="22" y1="2" x2="22" y2="7" />
+              </svg>
+            </div>
+            <div class="comp-body">
+              <div class="comp-title">
+                <i class="bi bi-bug"></i>
+                <span>Malware Analysis &amp; RE</span>
+              </div>
+              <div class="comp-sub">
+                <span>Ghidra</span><span>Volatility</span><span>YARA</span><span>Sandboxing</span>
+              </div>
+            </div>
+            <div class="comp-pct-block">
+              <div class="comp-pct-display">
+                <span class="comp-pct-live"></span>
+                <span class="comp-pct-num" data-count="78">0</span>
+                <span class="comp-pct-sym">%</span>
+              </div>
+              <div class="comp-pct-bar" style="--bar-w: 78%"></div>
+              <div class="comp-pct-meta">
+                <span class="comp-tag comp-tag-pro">PROFICIENT</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-6 reveal">
+        <h5 class="mb-4"><i class="bi bi-grid-1x2 text-accent me-2"></i>Security Domains</h5>
+        <div class="row g-4">
+          <div class="col-sm-6">
+            <div class="cyber-card">
+              <div class="icon-box"><i class="bi bi-eye"></i></div>
+              <h5 class="h6 mb-2">Blue Team</h5>
+              <p class="text-muted-soft mb-0" style="font-size:.87rem;">
+                SIEM tuning, log correlation, detection engineering, threat hunting, forensic triage.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="cyber-card">
+              <div class="icon-box"><i class="bi bi-crosshair"></i></div>
+              <h5 class="h6 mb-2">Red Team</h5>
+              <p class="text-muted-soft mb-0" style="font-size:.87rem;">
+                Web app pentesting, AD exploitation, social engineering, privilege escalation.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="cyber-card">
+              <div class="icon-box"><i class="bi bi-cloud-check"></i></div>
+              <h5 class="h6 mb-2">Cloud &amp; GRC</h5>
+              <p class="text-muted-soft mb-0" style="font-size:.87rem;">
+                IAM hardening, CSPM, ISO 27001 alignment, risk assessment &amp; reporting.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="cyber-card">
+              <div class="icon-box"><i class="bi bi-code-slash"></i></div>
+              <h5 class="h6 mb-2">Automation</h5>
+              <p class="text-muted-soft mb-0" style="font-size:.87rem;">
+                Python tooling, SOAR playbooks, Bash/PowerShell scripting, API integrations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 reveal">
+        <h5 class="mb-4"><i class="bi bi-tools text-accent me-2"></i>Tools &amp; Technologies</h5>
+        <div>
+          <span class="tool-chip">Splunk</span>
+          <span class="tool-chip">ELK Stack</span>
+          <span class="tool-chip">Wireshark</span>
+          <span class="tool-chip">Burp Suite</span>
+          <span class="tool-chip">Metasploit</span>
+          <span class="tool-chip">Nmap</span>
+          <span class="tool-chip">Nessus</span>
+          <span class="tool-chip">CrowdStrike</span>
+          <span class="tool-chip">Snort</span>
+          <span class="tool-chip">Suricata</span>
+          <span class="tool-chip">Volatility</span>
+          <span class="tool-chip">Ghidra</span>
+          <span class="tool-chip">YARA</span>
+          <span class="tool-chip">MITRE ATT&amp;CK</span>
+          <span class="tool-chip">Kali Linux</span>
+          <span class="tool-chip">Python</span>
+          <span class="tool-chip">Bash</span>
+          <span class="tool-chip">Docker</span>
+          <span class="tool-chip">AWS GuardDuty</span>
+          <span class="tool-chip">Terraform</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="mb-5 reveal">
+      <span class="section-tag">// 03 — career_path</span>
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-10">
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-date">2023 — PRESENT</div>
+            <div class="tl-role">Senior Cybersecurity Analyst</div>
+            <div class="tl-company">NexaSec Technologies · Remote</div>
+            <ul class="tl-list">
+              <li>Lead Tier-2 analyst in a 24×7 SOC handling 500+ daily alerts across 40+ enterprise clients.</li>
+              <li>Built 60+ custom Splunk correlation rules, reducing false positives by 42%.</li>
+              <li>Directed incident response for a ransomware attempt — contained in under 25 minutes.</li>
+              <li>Mentored 5 junior analysts on MITRE ATT&amp;CK mapping and forensic workflows.</li>
+            </ul>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-date">2021 — 2023</div>
+            <div class="tl-role">Penetration Tester</div>
+            <div class="tl-company">IronGate Consulting · Remote</div>
+            <ul class="tl-list">
+              <li>Executed 70+ web, mobile, and network penetration tests for fintech and healthcare clients.</li>
+              <li>Identified 120+ vulnerabilities including 9 critical CVEs-worthy findings.</li>
+              <li>Authored remediation roadmaps adopted by client engineering teams.</li>
+              <li>Developed an internal Python recon automation framework, cutting test setup time by 60%.</li>
+            </ul>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-date">2020 — 2021</div>
+            <div class="tl-role">Security Operations Intern</div>
+            <div class="tl-company">DataShield Systems · Remote</div>
+            <ul class="tl-list">
+              <li>Monitored IDS/IPS and firewall logs, escalating 200+ confirmed security events.</li>
+              <li>Assisted in phishing simulation campaigns reaching 3,000+ employees.</li>
+              <li>Documented SOC runbooks and improved onboarding material for new hires.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-tag">// 04 — projects</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="divider-line mx-auto"></div>
+      <p class="section-sub mx-auto">
+        Selected work spanning detection engineering, offensive security, and security automation.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="cyber-card project-card">
+          <div class="p-icon"><i class="bi bi-radar"></i></div>
+          <h5>ThreatHunt SIEM Dashboard</h5>
+          <p>A Splunk-based detection dashboard mapping live telemetry to MITRE ATT&amp;CK techniques. Includes 60+ correlation searches and automated alert triage.</p>
+          <div><span class="tag">Splunk</span><span class="tag">SPL</span><span class="tag">MITRE</span></div>
+          <a href="#" class="project-link">View Case Study <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="cyber-card project-card">
+          <div class="p-icon"><i class="bi bi-bug"></i></div>
+          <h5>WebApp Vulnerability Scanner</h5>
+          <p>Python tool that crawls web applications and detects OWASP Top 10 issues — SQLi, XSS, SSRF, and misconfigured headers — with a clean HTML report output.</p>
+          <div><span class="tag">Python</span><span class="tag">OWASP</span><span class="tag">Requests</span></div>
+          <a href="#" class="project-link">View on GitHub <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="cyber-card project-card">
+          <div class="p-icon"><i class="bi bi-diagram-3"></i></div>
+          <h5>Active Directory Attack Lab</h5>
+          <p>A self-hosted red team lab simulating Kerberoasting, AS-REP roasting, and lateral movement, with documented detection signatures for each attack path.</p>
+          <div><span class="tag">AD</span><span class="tag">BloodHound</span><span class="tag">Impacket</span></div>
+          <a href="#" class="project-link">Read Writeup <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="cyber-card project-card">
+          <div class="p-icon"><i class="bi bi-file-earmark-code"></i></div>
+          <h5>YARA Malware Rule Pack</h5>
+          <p>An open rule set for detecting common infostealer families, validated against VirusTotal samples with a documented false-positive rate under 1%.</p>
+          <div><span class="tag">YARA</span><span class="tag">Malware</span><span class="tag">DFIR</span></div>
+          <a href="#" class="project-link">View Rules <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="cyber-card project-card">
+          <div class="p-icon"><i class="bi bi-gear-wide-connected"></i></div>
+          <h5>SOAR Phishing Playbook</h5>
+          <p>Automated phishing response workflow: extracts IOCs, enriches via VirusTotal &amp; AbuseIPDB, quarantines messages, and notifies the user — in under 90 seconds.</p>
+          <div><span class="tag">SOAR</span><span class="tag">API</span><span class="tag">Automation</span></div>
+          <a href="#" class="project-link">View Case Study <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="cyber-card project-card">
+          <div class="p-icon"><i class="bi bi-shield-shaded"></i></div>
+          <h5>Cloud Security Posture Audit</h5>
+          <p>AWS environment hardened against CIS Benchmark v2.0 — remediated 45 misconfigurations across IAM, S3, and security groups with Terraform IaC fixes.</p>
+          <div><span class="tag">AWS</span><span class="tag">CIS</span><span class="tag">Terraform</span></div>
+          <a href="#" class="project-link">Read Report <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section" id="certs">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-tag">// 05 — credentials</span>
+      <h2 class="section-title">Certifications &amp; Training</h2>
+      <div class="divider-line mx-auto"></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cert-card">
+          <div class="cert-badge"><i class="bi bi-award"></i></div>
+          <div><h6>CompTIA Security+</h6><small>CompTIA · 2022</small></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cert-card">
+          <div class="cert-badge"><i class="bi bi-shield-lock"></i></div>
+          <div><h6>Certified Ethical Hacker</h6><small>EC-Council · 2022</small></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cert-card">
+          <div class="cert-badge"><i class="bi bi-fingerprint"></i></div>
+          <div><h6>GIAC GSEC</h6><small>SANS · 2023</small></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cert-card">
+          <div class="cert-badge"><i class="bi bi-cloud-lock"></i></div>
+          <div><h6>AWS Security Specialty</h6><small>Amazon · 2023</small></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cert-card">
+          <div class="cert-badge"><i class="bi bi-search"></i></div>
+          <div><h6>GCIH — Incident Handler</h6><small>SANS · 2024</small></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cert-card">
+          <div class="cert-badge"><i class="bi bi-pc-display"></i></div>
+          <div><h6>OSCP</h6><small>OffSec · In Progress</small></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cert-card">
+          <div class="cert-badge"><i class="bi bi-flag"></i></div>
+          <div><h6>TryHackMe — Top 3%</h6><small>Global Ranking</small></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cert-card">
+          <div class="cert-badge"><i class="bi bi-trophy"></i></div>
+          <div><h6>HackTheBox Pro Labs</h6><small>Completed 2024</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-tag">// 06 — contact</span>
+      <h2 class="section-title">Let's Secure Something Together</h2>
+      <div class="divider-line mx-auto"></div>
+      <p class="section-sub mx-auto">
+        Have a security assessment, SOC role, or consulting engagement in mind? My inbox is always open.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-5 reveal">
+        <div class="contact-card h-100">
+          <h5 class="mb-3">Contact Details</h5>
+          <p class="text-muted-soft" style="font-size:.9rem;">
+            I typically respond within 24 hours. For urgent security incidents, mark your
+            subject line as <span class="text-accent font-mono">[URGENT]</span>.
+          </p>
+
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-envelope"></i></div>
+            <div>
+              <div class="ci-label">Email</div>
+              <a href="mailto:saifumuhammed54@gmail.com" class="ci-value">saifumuhammed54@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-telephone"></i></div>
+            <div>
+              <div class="ci-label">Phone</div>
+              <a href="tel:+919207178570" class="ci-value">+91 92071 78570</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-linkedin"></i></div>
+            <div>
+              <div class="ci-label">LinkedIn</div>
+              <a href="https://www.linkedin.com/in/muhammed-saifuddeen-5b389a40b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                 target="_blank" rel="noopener noreferrer" class="ci-value">
+                muhammed-saifuddeen-5b389a40b
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-value">Remote · IST (UTC+5:30)</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-key"></i></div>
+            <div>
+              <div class="ci-label">PGP Key</div>
+              <div class="ci-value font-mono" style="font-size:.78rem; word-break:break-all;">
+                4A9F 2C81 D7E3 5B60 8F12
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 reveal">
+        <div class="contact-card">
+          <h5 class="mb-4">Send a Message</h5>
+          <form id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="name" placeholder="John Doe" required />
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="john@company.com" required />
+              </div>
+              <div class="col-12">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" placeholder="Security assessment enquiry" required />
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="5"
+                          placeholder="Tell me about your project or the role you're hiring for..." required></textarea>
+              </div>
+              <div class="col-12">
+                <div id="formAlert" class="alert d-none" role="alert"></div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-cyber w-100 w-md-auto">
+                  <i class="bi bi-send me-2"></i>Transmit Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-md-6 text-center text-md-start">
+        <p>&copy; <span id="year"></span> Saifuddeen — All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <p>Built with <span class="heart">&hearts;</span> &amp; caffeine · <span class="text-accent">Stay secure.</span></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
+(function customCursor() {
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  let rx = mx, ry = my;
+
+  const hoverTargets = 'a, button, .btn, .nav-link, .social-btn, .tool-chip, ' +
+                       '.cyber-card, .cert-card, .project-link, .stat-box, .comp-card, ' +
+                       '.navbar-toggler, .navbar-brand, #toTop, [role="button"]';
+
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+    document.body.classList.toggle('cursor-hover', !!e.target.closest(hoverTargets));
+  }, { passive: true });
+
+  (function loop() {
+    rx += (mx - rx) * 0.18;
+    ry += (my - ry) * 0.18;
+    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+    requestAnimationFrame(loop);
+  })();
+
+  document.addEventListener('mousedown', () => document.body.classList.add('cursor-down'));
+  document.addEventListener('mouseup', () => document.body.classList.remove('cursor-down'));
+  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+})();
+
+/* ============================================================
+   MATRIX RAIN
+   ============================================================ */
+(function matrixRain() {
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
+  const chars = 'アカサタナハマヤラワｦｧｨｩｪｫｬｭｮｯ0123456789ABCDEFabcdef<>/\\|=+*$#@!?{}[]';
+  let cols, drops, fontSize = 16;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    cols = Math.floor(canvas.width / fontSize);
+    drops = new Array(cols).fill(1);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function draw() {
+    ctx.fillStyle = 'rgba(8,5,6,0.09)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = fontSize + 'px "Share Tech Mono", monospace';
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = chars.charAt(Math.floor(Math.random() * chars.length));
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
+      if (Math.random() > 0.985) {
+        ctx.fillStyle = '#ff8f9f';
+        ctx.shadowColor = '#ff2d46';
+        ctx.shadowBlur = 14;
+      } else {
+        ctx.fillStyle = 'rgba(255,45,70,0.85)';
+        ctx.shadowColor = '#ff2d46';
+        ctx.shadowBlur = 6;
+      }
+      ctx.fillText(text, x, y);
+      ctx.shadowBlur = 0;
+      if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+    if (!reduce) requestAnimationFrame(draw);
+  }
+  if (!reduce) draw();
+})();
+
+/* ============================================================
+   BOOT SEQUENCE
+   ============================================================ */
+(function boot() {
+  const bootEl = document.getElementById('boot');
+  const bar = document.getElementById('bootBar');
+  let pct = 0;
+  const t = setInterval(() => {
+    pct += 8 + Math.random() * 10;
+    if (pct >= 100) { pct = 100; clearInterval(t); }
+    bar.style.width = pct + '%';
+  }, 180);
+
+  setTimeout(() => {
+    bootEl.classList.add('hidden');
+    document.body.style.overflow = '';
+    setTimeout(() => bootEl.remove(), 700);
+  }, 2000);
+  document.body.style.overflow = 'hidden';
+})();
+
+/* ============================================================
+   RADAR CHART BUILDER
+   ============================================================ */
+(function buildRadar() {
+  const svg = document.getElementById('radarChart');
+  if (!svg) return;
+
+  const data = [
+    { short: 'DETECT',   value: 95 },
+    { short: 'NETWORK',  value: 92 },
+    { short: 'PENTEST',  value: 90 },
+    { short: 'IR',       value: 88 },
+    { short: 'CLOUD',    value: 82 },
+    { short: 'MALWARE',  value: 78 }
+  ];
+
+  const cx = 160, cy = 160, maxR = 110, n = data.length;
+  const polar = (r, deg) => {
+    const rad = (deg - 90) * Math.PI / 180;
+    return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+  };
+
+  let html = `
+    <defs>
+      <radialGradient id="radarGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%"   stop-color="rgba(255,45,70,0.55)" />
+        <stop offset="60%"  stop-color="rgba(255,45,70,0.28)" />
+        <stop offset="100%" stop-color="rgba(255,45,70,0.10)" />
+      </radialGradient>
+      <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"   stop-color="#7a0a1a" />
+        <stop offset="55%"  stop-color="#ff2d46" />
+        <stop offset="100%" stop-color="#ff8f9f" />
+      </linearGradient>
+    </defs>`;
+
+  [0.25, 0.5, 0.75, 1].forEach(level => {
+    const pts = [];
+    for (let i = 0; i < n; i++) {
+      const p = polar(maxR * level, (360 / n) * i);
+      pts.push(`${p.x.toFixed(1)},${p.y.toFixed(1)}`);
+    }
+    const cls = level === 1 ? 'radar-grid-line-outer' : 'radar-grid-line';
+    html += `<polygon class="${cls}" points="${pts.join(' ')}" fill="none" stroke-width="1" />`;
+  });
+
+  for (let i = 0; i < n; i++) {
+    const p = polar(maxR, (360 / n) * i);
+    html += `<line class="radar-axis" x1="${cx}" y1="${cy}" x2="${p.x.toFixed(1)}" y2="${p.y.toFixed(1)}" stroke-width="1" />`;
+  }
+
+  const dataPts = data.map((d, i) => {
+    const p = polar(maxR * d.value / 100, (360 / n) * i);
+    return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+  });
+  html += `<polygon class="radar-data-poly" points="${dataPts.join(' ')}" />`;
+
+  data.forEach((d, i) => {
+    const p = polar(maxR * d.value / 100, (360 / n) * i);
+    html += `<circle class="radar-vertex" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3.5" style="animation-delay:${(1.4 + i * 0.08).toFixed(2)}s" />`;
+  });
+
+  data.forEach((d, i) => {
+    const p = polar(maxR + 26, (360 / n) * i);
+    let anchor = 'middle';
+    if (p.x < cx - 12) anchor = 'end';
+    else if (p.x > cx + 12) anchor = 'start';
+    const valueY = p.y + (p.y < cy ? -10 : 12);
+
+    html += `<text class="radar-label radar-label-strong" x="${p.x.toFixed(1)}" y="${p.y.toFixed(1)}" text-anchor="${anchor}" dominant-baseline="middle">${d.short}</text>`;
+    html += `<text class="radar-value" x="${p.x.toFixed(1)}" y="${valueY.toFixed(1)}" text-anchor="${anchor}" dominant-baseline="middle">${d.value}%</text>`;
+  });
+
+  svg.innerHTML = html;
+})();
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+const nav = document.getElementById('mainNav');
+const toTop = document.getElementById('toTop');
+const navLinks = document.querySelectorAll('.navbar .nav-link');
+const sections = document.querySelectorAll('section[id], header[id]');
+
+function onScroll() {
+  const y = window.scrollY;
+  nav.classList.toggle('scrolled', y > 40);
+  toTop.classList.toggle('show', y > 500);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+const navObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.getAttribute('id');
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+    }
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+sections.forEach(s => navObs.observe(s));
+
+document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .btn').forEach(link => {
+  link.addEventListener('click', () => {
+    const c = document.getElementById('navMenu');
+    if (c.classList.contains('show')) bootstrap.Collapse.getInstance(c)?.hide();
+  });
+});
+
+/* ============================================================
+   TYPING EFFECT
+   ============================================================ */
+const typedEl = document.getElementById('typed');
+const phrases = [
+  '> Threat Detection & Incident Response',
+  '> Penetration Testing & Red Teaming',
+  '> SIEM Engineering & Log Analysis',
+  '> Cloud Security & Compliance',
+  '> Malware Analysis & Digital Forensics'
+];
+let pi = 0, ci = 0, del = false;
+function typeLoop() {
+  const cur = phrases[pi];
+  typedEl.textContent = del ? cur.substring(0, ci--) : cur.substring(0, ci++);
+  let sp = del ? 28 : 58;
+  if (!del && ci === cur.length + 1) { del = true; sp = 1800; }
+  else if (del && ci === 0) { del = false; pi = (pi + 1) % phrases.length; sp = 320; }
+  setTimeout(typeLoop, sp);
+}
+typeLoop();
+
+/* ============================================================
+   SCROLL REVEAL + RINGS + COUNTERS
+   ============================================================ */
+const revealObs = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+
+    entry.target.querySelectorAll('.ring-fill[data-pct]').forEach((ring, i) => {
+      const pct = parseFloat(ring.dataset.pct);
+      const circ = 2 * Math.PI * 18;
+      setTimeout(() => {
+        ring.style.strokeDashoffset = (circ * (1 - pct / 100)).toFixed(2);
+      }, 200 + i * 120);
+    });
+
+    entry.target.querySelectorAll('.comp-pct-num[data-count]').forEach((numEl, i) => {
+      const target = parseInt(numEl.dataset.count, 10);
+      const delay = 300 + i * 120;
+      const duration = 1600;
+      const start = performance.now() + delay;
+      const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+      function tick(now) {
+        if (now < start) { requestAnimationFrame(tick); return; }
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = easeOutCubic(progress);
+        numEl.textContent = Math.round(target * eased);
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          numEl.textContent = target;
+          const card = numEl.closest('.comp-card');
+          if (card) card.classList.add('animated');
+        }
+      }
+      requestAnimationFrame(tick);
+    });
+
+    entry.target.querySelectorAll('.stat-box .num[data-count]').forEach(numEl => {
+      const target = parseInt(numEl.dataset.count, 10);
+      const suffix = numEl.dataset.suffix || '';
+      let cur = 0;
+      const step = Math.max(1, Math.ceil(target / 40));
+      const t = setInterval(() => {
+        cur += step;
+        if (cur >= target) { cur = target; clearInterval(t); }
+        numEl.textContent = cur + suffix;
+      }, 30);
+    });
+
+    obs.unobserve(entry.target);
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 70 + 'ms';
+  revealObs.observe(el);
+});
+
+/* ============================================================
+   TEXT SCRAMBLE
+   ============================================================ */
+const scrambleChars = '!<>-_\\/[]{}—=+*^?#________';
+function scramble(el) {
+  const original = el.dataset.original || el.textContent;
+  el.dataset.original = original;
+  let frame = 0;
+  const queue = original.split('').map((ch, i) => ({
+    ch,
+    start: Math.floor(Math.random() * 20) + i * 2,
+    end: Math.floor(Math.random() * 20) + i * 2 + 20
+  }));
+  function tick() {
+    let out = '', done = 0;
+    for (const q of queue) {
+      if (frame >= q.end) { out += q.ch; done++; }
+      else if (frame >= q.start) out += scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+    }
+    el.textContent = out;
+    frame++;
+    if (done < queue.length) requestAnimationFrame(tick);
+  }
+  tick();
+}
+const scrObs = new IntersectionObserver((entries, obs) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    scramble(e.target);
+    obs.unobserve(e.target);
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.section-title').forEach(el => scrObs.observe(el));
+
+/* ============================================================
+   CONTACT FORM
+   ============================================================ */
+const form = document.getElementById('contactForm');
+const alertBox = document.getElementById('formAlert');
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  alertBox.classList.remove('d-none', 'alert-success', 'alert-danger');
+  if (!name || !email || !subject || !message) {
+    alertBox.classList.add('alert-danger');
+    alertBox.innerHTML = '<i class="bi bi-exclamation-triangle me-2"></i>All fields are required.';
+    return;
+  }
+  if (!emailOk) {
+    alertBox.classList.add('alert-danger');
+    alertBox.innerHTML = '<i class="bi bi-exclamation-triangle me-2"></i>Please enter a valid email address.';
+    return;
+  }
+  alertBox.classList.add('alert-success');
+  alertBox.innerHTML = '<i class="bi bi-check-circle me-2"></i>Message transmitted successfully. I\'ll get back to you within 24 hours.';
+  form.reset();
+  setTimeout(() => alertBox.classList.add('d-none'), 6000);
+});
+
+/* ============================================================
+   FOOTER YEAR
+   ============================================================ */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
